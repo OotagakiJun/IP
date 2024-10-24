@@ -27,7 +27,7 @@ int main()
     {
         arr[i] = (rand() % (300 - 50 + 1)) + 50;
     }
-    
+
     printf("arreglo: { ");
     for (int i = 0; i < n; i++)
     {
@@ -53,7 +53,7 @@ int main()
         }
         cont = 0;
     }
-    
+
     printf("arreglo: { ");
     for (int i = 0; i < n; i++)
     {
