@@ -1,0 +1,16 @@
+/*
+strings
+
+arreglo:
+char arr[4] = {'a','b','c','d'}
+
+string:
+char string[5] = {'a','b','c','d','\0'}
+\0 caracter nulo
+
+*chain es igual a chain[]
+solo en la inicializacion
+ 
+ctype.h
+
+ */
