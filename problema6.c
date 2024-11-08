@@ -11,29 +11,39 @@
 
 int main()
 {
-	srand(time(NULL));
-	int arr[10000];
-	int aux = 0;
-	int flag = 0; 
-	for(int i = 0; i < 10000; i++)
-	{
-		arr[i] = (rand() % 100000 - 1) + 1;
-	}
+        srand(time(NULL));
+        int arr[10000];
+        int aux = 0;
+        int flag = 0; 
+        printf("Arreglo: [ ");
+        for(int i = 0; i < 10000; i++)
+        {
+                arr[i] = (rand() % 100000 - 1) + 1;
+                printf("%d ", arr[i]);
+        }
+        printf("]\n");
 
-	for(int j = 0; j < 10000 - 1; j++)
-	{
-		for(int i = 0; i < 10000 - 1 - j; i++)
-		{
-			if(arr[i] < arr[i + 1])
-			{
-				aux = arr[i + 1];
-				arr[i + 1] = arr[i];
-				arr[i] = aux;
-				flag = 1;
-			}
-		}
-		if(flag == 0) break;
-		else flag = 0;
-	}
-	return 0;
+        for(int j = 0; j < 10000 - 1; j++)
+        {
+                for(int i = 0; i < 10000 - 1 - j; i++)
+                {
+                        if(arr[i] < arr[i + 1])
+                        {
+                                aux = arr[i + 1];
+                                arr[i + 1] = arr[i];
+                                arr[i] = aux;
+                                flag = 1;
+                        }
+                }
+                if(flag == 0) break;
+                else flag = 0;
+        }
+        
+        printf("\nArreglo ordenado: [ ");
+        for(int i = 0; i < 10000; i++)
+        {
+                printf("%d ", arr[i]);
+        }
+        printf("]\n");
+        return 0;
 }
