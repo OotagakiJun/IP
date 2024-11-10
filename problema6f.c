@@ -10,49 +10,57 @@
 #include <time.h>
 
 void burbuja(int arr[]);
-void zo(int arr, int flag, int j);
+void zo(int arr, int flag, int j, int i);
 
 int main()
 {
 	srand(time(NULL));
 	int arr[10000];
-	
-	for(int i = 0; i < 10000; i++)
+	printf("Arreglo: [ ");
+	for (int i = 0; i < 10000; i++)
 	{
 		arr[i] = (rand() % 100000 - 1) + 1;
+		printf("%d ", arr[i]);
 	}
-    burbuja(arr);
-	
+	printf("]\n");
+	burbuja(arr);
+	printf("Arreglo ordenado: [ ");
+	for (int i = 0; i < 10000; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	printf("]\n");
 	return 0;
 }
 
 void burbuja(int arr[])
 {
-	int flag = 0; 
-    static int j = 0;
-    if (j < 10000 - 1)
+	int flag = 0;
+	static int i = 0;
+	static int j = 0;
+	if (j < 10000 - 1)
 	{
-		zo(arr, flag, j);
-		if(flag == 0) break;
-		else flag = 0;
-        j++;
-        burbuja(arr);
+		zo(arr, flag, j, i);
+		if (flag != 0)
+		{
+			j++;
+			burbuja(arr);
+		}
 	}
 }
 
-void zo(int arr, int flag, int j)
+void zo(int arr, int flag, int j, int i)
 {
-    static int *i = 0;
-    int aux = 0;
-    if (i < 10000 - 1 - j)
+	int aux = 0;
+	if (i < 10000 - 1 - j)
+	{
+		if (arr[i] < arr[i + 1])
 		{
-			if(arr[i] < arr[i + 1])
-			{
-				aux = arr[i + 1];
-				arr[i + 1] = arr[i];
-				arr[i] = aux;
-				flag = 1;
-			}
-            i++;
+			aux = arr[i + 1];
+			arr[i + 1] = arr[i];
+			arr[i] = aux;
+			flag = 1;
 		}
+		i++;
+	}
 }
